@@ -4,6 +4,7 @@ namespace MatrixOfFate.ViewModels
 {
     public static class Calculate
     {
+
         public static DateOfBirth DateOfBirth { get; set; } = new DateOfBirth();
         private static Matrix matrix;
 
