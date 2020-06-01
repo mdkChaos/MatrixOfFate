@@ -1,0 +1,1437 @@
+﻿<Window x:Class="MatrixOfFate.Views.MatrixWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MatrixOfFate.Views"
+        mc:Ignorable="d"
+        Title="Осознанный мир «Open your way»"
+        MinHeight="540" MinWidth="793.7"
+        WindowState="Maximized"
+        WindowStartupLocation="CenterScreen"
+        Icon="/MatrixOfFate;component/Resources/Icon/Icon.png">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="203*"/>
+            <ColumnDefinition Width="591*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Menu Height="25" VerticalAlignment="Center" Background="Gray" Grid.ColumnSpan="2">
+            <MenuItem Header="File" Height="25">
+                <MenuItem Header="Exit" Click="Exit_Click"/>
+                <MenuItem Header="Print" Click="Print_Click"/>
+            </MenuItem>
+            <MenuItem Header="Help" Height="25">
+                <MenuItem Header="About" Click="Help_Click"/>
+            </MenuItem>
+        </Menu>
+
+        <FlowDocumentReader Grid.Row="1"
+                            Zoom="100"
+                            MinZoom="10"
+                            MaxZoom="200"
+                            ZoomIncrement="10"
+                            Background="LightGray"
+                            IsFindEnabled="False"
+                            IsPrintEnabled="True"
+                            IsTwoPageViewEnabled="False"
+                            IsScrollViewEnabled="False"
+                            ViewingMode="Page" Grid.ColumnSpan="2">
+            <FlowDocument Name="A4Page"
+                          Background="White"
+                          PageWidth="21 cm"
+                          PageHeight="29.7 cm"
+                          ColumnWidth="21 cm"
+                          PagePadding="0">
+                <BlockUIContainer>
+                    <Grid>
+
+                        <Image Source="/Resources/Icon/Logo4.png" Margin="10,10,0,0" Width="200" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+
+                        <Grid Margin="0,10,20,0" Width="200" Height="60" HorizontalAlignment="Right" VerticalAlignment="Top">
+                            <Label Content="Дата Рождения" VerticalAlignment="Top" Style="{StaticResource Label}"/>
+                            <Label x:Name="DateOfBirth" Content="" VerticalAlignment="Bottom"  Style="{StaticResource Label}"/>
+                        </Grid>
+
+                        <Grid Width="830" Margin="20,0,0,0">
+
+
+                            <!--#region Big Matrix-->
+
+                            <Rectangle Height="450" Width="450" Stroke="DarkGoldenrod" StrokeThickness="8" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="150,150,0,0"/>
+                            <Rectangle Height="450" Width="450" Stroke="DarkGoldenrod" StrokeThickness="8" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="375,57,0,0">
+                                <Rectangle.RenderTransform>
+                                    <RotateTransform Angle="45"/>
+                                </Rectangle.RenderTransform>
+                            </Rectangle>
+
+                            <Border Margin="37,355,0,0" Style="{StaticResource Purple}">
+                                <Label Content="{Binding A1}" Style="{StaticResource WhiteText}"/>
+                            </Border>
+                            <Border Margin="355,37,0,0" Style="{StaticResource Purple}">
+                                <Label Content="{Binding A2}" Style="{StaticResource WhiteText}"/>
+                            </Border>
+                            <Border Margin="130,130,0,0" Style="{StaticResource Purple}">
+                                <Label Content="{Binding A3}" Style="{StaticResource WhiteText}"/>
+                            </Border>
+                            <Border Margin="580,130,0,0" Style="{StaticResource Purple}">
+                                <Label Content="{Binding A4}" Style="{StaticResource WhiteText}"/>
+                            </Border>
+                            <Border Margin="130,580,0,0" Style="{StaticResource Purple}">
+                                <Label Content="{Binding A5}" Style="{StaticResource WhiteText}"/>
+                            </Border>
+                            <Border Margin="83.5,242.5,0,0" Style="{StaticResource Purple}">
+                                <Label Content="{Binding A6}" Style="{StaticResource WhiteText}"/>
+                            </Border>
+                            <Border Margin="242.5,83.5,0,0" Style="{StaticResource Purple}">
+                                <Label Content="{Binding A7}" Style="{StaticResource WhiteText}"/>
+                            </Border>
+                            <Border Margin="467.5,83.5,0,0" Style="{StaticResource Purple}">
+                                <Label Content="{Binding A8}" Style="{StaticResource WhiteText}"/>
+                            </Border>
+                            <Border Margin="83.5,467.5,0,0" Style="{StaticResource Purple}">
+                                <Label Content="{Binding A9}" Style="{StaticResource WhiteText}"/>
+                            </Border>
+                            <Border Margin="355,116.5,0,0" Style="{StaticResource Blue}">
+                                <Label Content="{Binding B1}" Style="{StaticResource WhiteText}"/>
+                            </Border>
+                            <Border Margin="116.5,355,0,0" Style="{StaticResource Blue}">
+                                <Label Content="{Binding B2}" Style="{StaticResource WhiteText}"/>
+                            </Border>
+                            <Border Margin="186.25,186.25,0,0" Style="{StaticResource Blue}">
+                                <Label Content="{Binding B3}" Style="{StaticResource WhiteText}"/>
+                            </Border>
+                            <Border Margin="186.25,523.75,0,0" Style="{StaticResource Blue}">
+                                <Label Content="{Binding B4}" Style="{StaticResource WhiteText}"/>
+                            </Border>
+                            <Border Margin="151.375,270.625,0,0" Style="{StaticResource Blue}">
+                                <Label Content="{Binding B5}" Style="{StaticResource WhiteText}"/>
+                            </Border>
+                            <Border Margin="270.625,151.375,0,0" Style="{StaticResource Blue}">
+                                <Label Content="{Binding B6}" Style="{StaticResource WhiteText}"/>
+                            </Border>
+                            <Border Margin="523.75,186.25,0,0" Style="{StaticResource Blue}">
+                                <Label Content="{Binding B7}" Style="{StaticResource WhiteText}"/>
+                            </Border>
+                            <Border Margin="439.375,151.375,0,0" Style="{StaticResource Blue}">
+                                <Label Content="{Binding B8}" Style="{StaticResource WhiteText}"/>
+                            </Border>
+                            <Border Margin="151.375,439.375,0,0" Style="{StaticResource Blue}">
+                                <Label Content="{Binding B9}" Style="{StaticResource WhiteText}"/>
+                            </Border>
+                            <Border Margin="196,355,0,0" Style="{StaticResource LightBlue}">
+                                <Label Content="{Binding C1}" Style="{StaticResource BlackText}"/>
+                            </Border>
+                            <Border Margin="355,196,0,0" Style="{StaticResource LightBlue}">
+                                <Label Content="{Binding C2}" Style="{StaticResource BlackText}"/>
+                            </Border>
+                            <Border Margin="242.5,242.5,0,0" Style="{StaticResource LightBlue}">
+                                <Label Content="{Binding C3}" Style="{StaticResource BlackText}"/>
+                            </Border>
+                            <Border Margin="242.5,467.5,0,0" Style="{StaticResource LightBlue}">
+                                <Label Content="{Binding C4}" Style="{StaticResource BlackText}"/>
+                            </Border>
+                            <Border Margin="219.25,298.75,0,0" Style="{StaticResource LightBlue}">
+                                <Label Content="{Binding C5}" Style="{StaticResource BlackText}"/>
+                            </Border>
+                            <Border Margin="298.75,219.25,0,0" Style="{StaticResource LightBlue}">
+                                <Label Content="{Binding C6}" Style="{StaticResource BlackText}"/>
+                            </Border>
+                            <Border Margin="467.5,242.5,0,0" Style="{StaticResource LightBlue}">
+                                <Label Content="{Binding C7}" Style="{StaticResource BlackText}"/>
+                            </Border>
+                            <Border Margin="411.25,219.25,0,0" Style="{StaticResource LightBlue}">
+                                <Label Content="{Binding C8}" Style="{StaticResource BlackText}"/>
+                            </Border>
+                            <Border Margin="219.25,411.25,0,0" Style="{StaticResource LightBlue}">
+                                <Label Content="{Binding C9}" Style="{StaticResource BlackText}"/>
+                            </Border>
+                            <Border Margin="250,355,0,0" Style="{StaticResource Green}">
+                                <Label Content="{Binding D1}" Style="{StaticResource WhiteText}"/>
+                            </Border>
+                            <Border Margin="355,250,0,0" Style="{StaticResource Green}">
+                                <Label Content="{Binding D2}" Style="{StaticResource WhiteText}"/>
+                            </Border>
+                            <Border Margin="280,280,0,0" Style="{StaticResource Green}">
+                                <Label Content="{Binding D3}" Style="{StaticResource WhiteText}"/>
+                            </Border>
+                            <Border Margin="260,315,0,0" Style="{StaticResource Green}">
+                                <Label Content="{Binding D4}" Style="{StaticResource WhiteText}"/>
+                            </Border>
+                            <Border Margin="315,260,0,0" Style="{StaticResource Green}">
+                                <Label Content="{Binding D5}" Style="{StaticResource WhiteText}"/>
+                            </Border>
+                            <Border Margin="430,280,0,0" Style="{StaticResource Green}">
+                                <Label Content="{Binding D6}" Style="{StaticResource WhiteText}"/>
+                            </Border>
+                            <Border Margin="355,460,0,0" Style="{StaticResource Green}">
+                                <Label Content="{Binding D7}" Style="{StaticResource WhiteText}"/>
+                            </Border>
+                            <Border Margin="395,260,0,0" Style="{StaticResource Green}">
+                                <Label Content="{Binding D8}" Style="{StaticResource WhiteText}"/>
+                            </Border>
+                            <Border Margin="280,430,0,0" Style="{StaticResource Green}">
+                                <Label Content="{Binding D9}" Style="{StaticResource WhiteText}"/>
+                            </Border>
+                            <Border Margin="355,355,0,0" Style="{StaticResource Yellow}">
+                                <Label Content="{Binding E1}" Style="{StaticResource BlackText}"/>
+                            </Border>
+                            <Border Margin="434.5,355,0,0" Style="{StaticResource Yellow}">
+                                <Label Content="{Binding E2}" Style="{StaticResource BlackText}"/>
+                            </Border>
+                            <Border Margin="411.25,411.25,0,0" Style="{StaticResource Yellow}">
+                                <Label Content="{Binding E3}" Style="{StaticResource BlackText}"/>
+                            </Border>
+                            <Border Margin="514,355,0,0" Style="{StaticResource Orange}">
+                                <Label Content="{Binding F1}" Style="{StaticResource BlackText}"/>
+                            </Border>
+                            <Border Margin="355,514,0,0" Style="{StaticResource Orange}">
+                                <Label Content="{Binding F2}" Style="{StaticResource BlackText}"/>
+                            </Border>
+                            <Border Margin="467.5,467.5,0,0" Style="{StaticResource Orange}">
+                                <Label Content="{Binding F3}" Style="{StaticResource BlackText}"/>
+                            </Border>
+                            <Border Margin="490.75,411.25,0,0" Style="{StaticResource Orange}">
+                                <Label Content="{Binding F4}" Style="{StaticResource BlackText}"/>
+                            </Border>
+                            <Border Margin="411.25,490.75,0,0" Style="{StaticResource Orange}">
+                                <Label Content="{Binding F5}" Style="{StaticResource BlackText}"/>
+                            </Border>
+                            <Border Margin="490.75,298.75,0,0" Style="{StaticResource Orange}">
+                                <Label Content="{Binding F6}" Style="{StaticResource BlackText}"/>
+                            </Border>
+                            <Border Margin="298.75,490.75,0,0" Style="{StaticResource Orange}">
+                                <Label Content="{Binding F7}" Style="{StaticResource BlackText}"/>
+                            </Border>
+                            <Border Margin="673,355,0,0" Style="{StaticResource IndianRed}">
+                                <Label Content="{Binding G1}" Style="{StaticResource WhiteText}"/>
+                            </Border>
+                            <Border Margin="355,673,0,0" Style="{StaticResource IndianRed}">
+                                <Label Content="{Binding G2}" Style="{StaticResource WhiteText}"/>
+                            </Border>
+                            <Border Margin="580,580,0,0" Style="{StaticResource IndianRed}">
+                                <Label Content="{Binding G3}" Style="{StaticResource WhiteText}"/>
+                            </Border>
+                            <Border Margin="623.5,467.5,0,0" Style="{StaticResource IndianRed}">
+                                <Label Content="{Binding G4}" Style="{StaticResource WhiteText}"/>
+                            </Border>
+                            <Border Margin="467.5,623.5,0,0" Style="{StaticResource IndianRed}">
+                                <Label Content="{Binding G5}" Style="{StaticResource WhiteText}"/>
+                            </Border>
+                            <Border Margin="626.5,242.5,0,0" Style="{StaticResource IndianRed}">
+                                <Label Content="{Binding G6}" Style="{StaticResource WhiteText}"/>
+                            </Border>
+                            <Border Margin="242.5,626.5,0,0" Style="{StaticResource IndianRed}">
+                                <Label Content="{Binding G7}" Style="{StaticResource WhiteText}"/>
+                            </Border>
+
+
+                            <!--#region Lines-->
+
+                            <Grid>
+                                <Line X1="150" Y1="150" X2="600" Y2="600" Stroke="DarkGoldenrod" StrokeThickness="6"/>
+                                <Line X1="150" Y1="600" X2="600" Y2="150" Stroke="DarkGoldenrod" StrokeThickness="6"/>
+                                <Line X1="375" Y1="57" X2="375" Y2="693" Stroke="DarkGoldenrod" StrokeThickness="6"/>
+                                <Line X1="57" Y1="375" X2="693" Y2="375" Stroke="DarkGoldenrod" StrokeThickness="6"/>
+                                <Line X1="375" Y1="57" X2="600" Y2="150" Stroke="DarkGoldenrod" StrokeThickness="4"/>
+                                <Line X1="57" Y1="375" X2="150" Y2="150" Stroke="DarkGoldenrod" StrokeThickness="4"/>
+                                <Line X1="57" Y1="375" X2="150" Y2="600" Stroke="DarkGoldenrod" StrokeThickness="4"/>
+                                <Line X1="150" Y1="150" X2="375" Y2="57" Stroke="DarkGoldenrod" StrokeThickness="4"/>
+                                <Line X1="136.5" Y1="375" X2="206.25" Y2="206.25" Stroke="DarkGoldenrod" StrokeThickness="4"/>
+                                <Line X1="375" Y1="136.5" X2="206.25" Y2="206.25" Stroke="DarkGoldenrod" StrokeThickness="4"/>
+                                <Line X1="375" Y1="136.5" X2="543.75" Y2="206.25" Stroke="DarkGoldenrod" StrokeThickness="4"/>
+                                <Line X1="136.5" Y1="375" X2="206.25" Y2="543.75" Stroke="DarkGoldenrod" StrokeThickness="4"/>
+                                <Line X1="216" Y1="375" X2="262.5" Y2="262.5" Stroke="DarkGoldenrod" StrokeThickness="4"/>
+                                <Line X1="375" Y1="216" X2="262.5" Y2="262.5" Stroke="DarkGoldenrod" StrokeThickness="4"/>
+                                <Line X1="487.5" Y1="262.5" X2="375.5" Y2="216" Stroke="DarkGoldenrod" StrokeThickness="4"/>
+                                <Line X1="262.5" Y1="487.5" X2="216" Y2="375.5" Stroke="DarkGoldenrod" StrokeThickness="4"/>
+                                <Line X1="270" Y1="375" X2="300" Y2="300" Stroke="DarkGoldenrod" StrokeThickness="4"/>
+                                <Line X1="300" Y1="300" X2="375" Y2="270" Stroke="DarkGoldenrod" StrokeThickness="4"/>
+                                <Line X1="450" Y1="300" X2="375" Y2="270" Stroke="DarkGoldenrod" StrokeThickness="4"/>
+                                <Line X1="300" Y1="450" X2="270" Y2="375" Stroke="DarkGoldenrod" StrokeThickness="4"/>
+                                <Line X1="300" Y1="450" X2="375" Y2="480" Stroke="DarkGoldenrod" StrokeThickness="4"/>
+                                <Line X1="534" Y1="375" X2="487.5" Y2="487.5" Stroke="DarkGoldenrod" StrokeThickness="4"/>
+                                <Line X1="375" Y1="534" X2="487.5" Y2="487.5" Stroke="DarkGoldenrod" StrokeThickness="4"/>
+                                <Line X1="487.5" Y1="262.5" X2="534" Y2="375" Stroke="DarkGoldenrod" StrokeThickness="4"/>
+                                <Line X1="375" Y1="534" X2="262.5" Y2="487.5" Stroke="DarkGoldenrod" StrokeThickness="4"/>
+                                <Line X1="693" Y1="375" X2="600" Y2="600" Stroke="DarkGoldenrod" StrokeThickness="4"/>
+                                <Line X1="375" Y1="693" X2="600" Y2="600" Stroke="DarkGoldenrod" StrokeThickness="4"/>
+                                <Line X1="693" Y1="375" X2="600" Y2="150" Stroke="DarkGoldenrod" StrokeThickness="4"/>
+                                <Line X1="375" Y1="693" X2="150" Y2="600" Stroke="DarkGoldenrod" StrokeThickness="4"/>
+                            </Grid>
+
+                            <!--#endregion-->
+
+                            <!--#endregion-->
+
+                            <!--#region Big Table-->
+
+                            <Border Margin="0,750,20,20" Width="750" Style="{StaticResource BorderTable}" VerticalAlignment="Top" HorizontalAlignment="Left">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="50"/>
+                                        <RowDefinition Height="40"/>
+                                        <RowDefinition Height="40"/>
+                                        <RowDefinition Height="40"/>
+                                        <RowDefinition Height="40"/>
+                                        <RowDefinition Height="40"/>
+                                        <RowDefinition Height="40"/>
+                                        <RowDefinition Height="40"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="80"/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <Border Grid.Row="0" Grid.Column="0" Style="{StaticResource BorderTable}">
+                                        <Grid>
+                                            <Label Content="Чакры" VerticalAlignment="Top" Style="{StaticResource LabelTable}"/>
+                                            <Label Content="Поколения" VerticalAlignment="Bottom" Style="{StaticResource LabelTable}"/>
+                                        </Grid>
+                                    </Border>
+                                    <Border Grid.Row="0" Grid.Column="1" Style="{StaticResource BorderTable}">
+                                        <Grid>
+                                            <Label Content="Небо" VerticalAlignment="Top" Style="{StaticResource LabelTable}"/>
+                                            <Label Content="Духовн. накопл." VerticalAlignment="Center" Style="{StaticResource LabelTable}"/>
+                                            <Label Content="Мужского рода" VerticalAlignment="Bottom" Style="{StaticResource LabelTable}"/>
+                                        </Grid>
+                                    </Border>
+                                    <Border Grid.Row="0" Grid.Column="2" Style="{StaticResource BorderTable}">
+                                        <Grid>
+                                            <Label Content="Земля" VerticalAlignment="Top" Style="{StaticResource LabelTable}"/>
+                                            <Label Content="Матер. накопл." VerticalAlignment="Center" Style="{StaticResource LabelTable}"/>
+                                            <Label Content="Мужского рода" VerticalAlignment="Bottom" Style="{StaticResource LabelTable}"/>
+                                        </Grid>
+                                    </Border>
+                                    <Border Grid.Row="0" Grid.Column="3" Style="{StaticResource BorderTable}">
+                                        <Grid>
+                                            <Label Content="Целостный ключ" VerticalAlignment="Top" Style="{StaticResource LabelTable}"/>
+                                            <Label Content="Отраб. по линии" VerticalAlignment="Center" Style="{StaticResource LabelTable}"/>
+                                            <Label Content="Мужского рода" VerticalAlignment="Bottom" Style="{StaticResource LabelTable}"/>
+                                        </Grid>
+                                    </Border>
+                                    <Border Grid.Row="0" Grid.Column="4" Style="{StaticResource BorderTable}" Background="PeachPuff">
+                                        <Grid>
+                                            <Label Content="Целостный ключ" VerticalAlignment="Top" Style="{StaticResource LabelTable}"/>
+                                            <Label Content="Отработки родов" VerticalAlignment="Bottom" Style="{StaticResource LabelTable}"/>
+                                        </Grid>
+                                    </Border>
+                                    <Border Grid.Row="0" Grid.Column="5" Style="{StaticResource BorderTable}">
+                                        <Grid>
+                                            <Label Content="Целостный ключ" VerticalAlignment="Top" Style="{StaticResource LabelTable}"/>
+                                            <Label Content="Отраб. по линии" VerticalAlignment="Center" Style="{StaticResource LabelTable}"/>
+                                            <Label Content="Женского рода" VerticalAlignment="Bottom" Style="{StaticResource LabelTable}"/>
+                                        </Grid>
+                                    </Border>
+                                    <Border Grid.Row="0" Grid.Column="6" Style="{StaticResource BorderTable}">
+                                        <Grid>
+                                            <Label Content="Небо" VerticalAlignment="Top" Style="{StaticResource LabelTable}"/>
+                                            <Label Content="Духовн. накопл." VerticalAlignment="Center" Style="{StaticResource LabelTable}"/>
+                                            <Label Content="Женского рода" VerticalAlignment="Bottom" Style="{StaticResource LabelTable}"/>
+                                        </Grid>
+                                    </Border>
+                                    <Border Grid.Row="0" Grid.Column="7" Style="{StaticResource BorderTable}">
+                                        <Grid>
+                                            <Label Content="Земля" VerticalAlignment="Top" Style="{StaticResource LabelTable}"/>
+                                            <Label Content="Матер. накопл." VerticalAlignment="Center" Style="{StaticResource LabelTable}"/>
+                                            <Label Content="Женского рода" VerticalAlignment="Bottom" Style="{StaticResource LabelTable}"/>
+                                        </Grid>
+                                    </Border>
+                                    <Border Grid.Row="1" Grid.Column="0" Style="{StaticResource BorderTable}" Background="Purple">
+                                        <Grid>
+                                            <Label Content="7 Чакра" VerticalAlignment="Top" Style="{StaticResource LabelTable}" Foreground="White"/>
+                                            <Label Content="1 Поколение" VerticalAlignment="Bottom" Style="{StaticResource LabelTable}" Foreground="White"/>
+                                        </Grid>
+                                    </Border>
+                                    <Border Grid.Row="1" Grid.Column="1" Style="{StaticResource BorderTable}">
+                                        <Grid>
+                                            <Label Content="{Binding R1C1}" FontSize="16" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                                        </Grid>
+                                    </Border>
+                                    <Border Grid.Row="1" Grid.Column="2" Style="{StaticResource BorderTable}">
+                                        <Grid>
+                                            <Label Content="{Binding R1C2}" FontSize="16" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                                        </Grid>
+                                    </Border>
+                                    <Border Grid.Row="1" Grid.Column="3" Style="{StaticResource BorderTable}">
+                                        <Grid>
+                                            <Label Content="{Binding R1C3}" FontSize="16" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                                        </Grid>
+                                    </Border>
+                                    <Border Grid.Row="1" Grid.Column="4" Style="{StaticResource BorderTable}" Background="PeachPuff">
+                                        <Grid>
+                                            <Label Content="{Binding R1C4}" FontSize="16" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                                        </Grid>
+                                    </Border>
+                                    <Border Grid.Row="1" Grid.Column="5" Style="{StaticResource BorderTable}">
+                                        <Grid>
+                                            <Label Content="{Binding R1C5}" FontSize="16" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                                        </Grid>
+                                    </Border>
+                                    <Border Grid.Row="1" Grid.Column="6" Style="{StaticResource BorderTable}">
+                                        <Grid>
+                                            <Label Content="{Binding R1C6}" FontSize="16" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                                        </Grid>
+                                    </Border>
+                                    <Border Grid.Row="1" Grid.Column="7" Style="{StaticResource BorderTable}">
+                                        <Grid>
+                                            <Label Content="{Binding R1C7}" FontSize="16" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                                        </Grid>
+                                    </Border>
+                                    <Border Grid.Row="2" Grid.Column="0" Style="{StaticResource BorderTable}" Background="Blue">
+                                        <Grid>
+                                            <Label Content="6 Чакра" VerticalAlignment="Top" Style="{StaticResource LabelTable}" Foreground="White"/>
+                                            <Label Content="2 Поколение" VerticalAlignment="Bottom" Style="{StaticResource LabelTable}" Foreground="White"/>
+                                        </Grid>
+                                    </Border>
+                                    <Border Grid.Row="2" Grid.Column="1" Style="{StaticResource BorderTable}">
+                                        <Grid>
+                                            <Label Content="{Binding R2C1}" FontSize="16" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                                        </Grid>
+                                    </Border>
+                                    <Border Grid.Row="2" Grid.Column="2" Style="{StaticResource BorderTable}">
+                                        <Grid>
+                                            <Label Content="{Binding R2C2}" FontSize="16" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                                        </Grid>
+                                    </Border>
+                                    <Border Grid.Row="2" Grid.Column="3" Style="{StaticResource BorderTable}">
+                                        <Grid>
+                                            <Label Content="{Binding R2C3}" FontSize="16" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                                        </Grid>
+                                    </Border>
+                                    <Border Grid.Row="2" Grid.Column="4" Style="{StaticResource BorderTable}" Background="PeachPuff">
+                                        <Grid>
+                                            <Label Content="{Binding R2C4}" FontSize="16" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                                        </Grid>
+                                    </Border>
+                                    <Border Grid.Row="2" Grid.Column="5" Style="{StaticResource BorderTable}">
+                                        <Grid>
+                                            <Label Content="{Binding R2C5}" FontSize="16" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                                        </Grid>
+                                    </Border>
+                                    <Border Grid.Row="2" Grid.Column="6" Style="{StaticResource BorderTable}">
+                                        <Grid>
+                                            <Label Content="{Binding R2C6}" FontSize="16" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                                        </Grid>
+                                    </Border>
+                                    <Border Grid.Row="2" Grid.Column="7" Style="{StaticResource BorderTable}">
+                                        <Grid>
+                                            <Label Content="{Binding R2C7}" FontSize="16" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                                        </Grid>
+                                    </Border>
+                                    <Border Grid.Row="3" Grid.Column="0" Style="{StaticResource BorderTable}" Background="LightBlue">
+                                        <Grid>
+                                            <Label Content="5 Чакра" VerticalAlignment="Top" Style="{StaticResource LabelTable}"/>
+                                            <Label Content="3 Поколение" VerticalAlignment="Bottom" Style="{StaticResource LabelTable}"/>
+                                        </Grid>
+                                    </Border>
+                                    <Border Grid.Row="3" Grid.Column="1" Style="{StaticResource BorderTable}">
+                                        <Grid>
+                                            <Label Content="{Binding R3C1}" FontSize="16" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                                        </Grid>
+                                    </Border>
+                                    <Border Grid.Row="3" Grid.Column="2" Style="{StaticResource BorderTable}">
+                                        <Grid>
+                                            <Label Content="{Binding R3C2}" FontSize="16" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                                        </Grid>
+                                    </Border>
+                                    <Border Grid.Row="3" Grid.Column="3" Style="{StaticResource BorderTable}">
+                                        <Grid>
+                                            <Label Content="{Binding R3C3}" FontSize="16" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                                        </Grid>
+                                    </Border>
+                                    <Border Grid.Row="3" Grid.Column="4" Style="{StaticResource BorderTable}" Background="PeachPuff">
+                                        <Grid>
+                                            <Label Content="{Binding R3C4}" FontSize="16" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                                        </Grid>
+                                    </Border>
+                                    <Border Grid.Row="3" Grid.Column="5" Style="{StaticResource BorderTable}">
+                                        <Grid>
+                                            <Label Content="{Binding R3C5}" FontSize="16" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                                        </Grid>
+                                    </Border>
+                                    <Border Grid.Row="3" Grid.Column="6" Style="{StaticResource BorderTable}">
+                                        <Grid>
+                                            <Label Content="{Binding R3C6}" FontSize="16" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                                        </Grid>
+                                    </Border>
+                                    <Border Grid.Row="3" Grid.Column="7" Style="{StaticResource BorderTable}">
+                                        <Grid>
+                                            <Label Content="{Binding R3C7}" FontSize="16" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                                        </Grid>
+                                    </Border>
+                                    <Border Grid.Row="4" Grid.Column="0" Style="{StaticResource BorderTable}" Background="Green">
+                                        <Grid>
+                                            <Label Content="4 Чакра" VerticalAlignment="Top" Style="{StaticResource LabelTable}" Foreground="White"/>
+                                            <Label Content="4 Поколение" VerticalAlignment="Bottom" Style="{StaticResource LabelTable}" Foreground="White"/>
+                                        </Grid>
+                                    </Border>
+                                    <Border Grid.Row="4" Grid.Column="1" Style="{StaticResource BorderTable}">
+                                        <Grid>
+                                            <Label Content="{Binding R4C1}" FontSize="16" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                                        </Grid>
+                                    </Border>
+                                    <Border Grid.Row="4" Grid.Column="2" Style="{StaticResource BorderTable}">
+                                        <Grid>
+                                            <Label Content="{Binding R4C2}" FontSize="16" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                                        </Grid>
+                                    </Border>
+                                    <Border Grid.Row="4" Grid.Column="3" Style="{StaticResource BorderTable}">
+                                        <Grid>
+                                            <Label Content="{Binding R4C3}" FontSize="16" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                                        </Grid>
+                                    </Border>
+                                    <Border Grid.Row="4" Grid.Column="4" Style="{StaticResource BorderTable}" Background="PeachPuff">
+                                        <Grid>
+                                            <Label Content="{Binding R4C4}" FontSize="16" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                                        </Grid>
+                                    </Border>
+                                    <Border Grid.Row="4" Grid.Column="5" Style="{StaticResource BorderTable}">
+                                        <Grid>
+                                            <Label Content="{Binding R4C5}" FontSize="16" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                                        </Grid>
+                                    </Border>
+                                    <Border Grid.Row="4" Grid.Column="6" Style="{StaticResource BorderTable}">
+                                        <Grid>
+                                            <Label Content="{Binding R4C6}" FontSize="16" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                                        </Grid>
+                                    </Border>
+                                    <Border Grid.Row="4" Grid.Column="7" Style="{StaticResource BorderTable}">
+                                        <Grid>
+                                            <Label Content="{Binding R4C7}" FontSize="16" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                                        </Grid>
+                                    </Border>
+                                    <Border Grid.Row="5" Grid.Column="0" Style="{StaticResource BorderTable}" Background="Yellow">
+                                        <Grid>
+                                            <Label Content="3 Чакра" VerticalAlignment="Top" Style="{StaticResource LabelTable}"/>
+                                            <Label Content="5 Поколение" VerticalAlignment="Bottom" Style="{StaticResource LabelTable}"/>
+                                        </Grid>
+                                    </Border>
+                                    <Border Grid.Row="5" Grid.Column="1" Style="{StaticResource BorderTable}">
+                                        <Grid>
+                                            <Label Content="{Binding R5C1}" FontSize="16" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                                        </Grid>
+                                    </Border>
+                                    <Border Grid.Row="5" Grid.Column="2" Style="{StaticResource BorderTable}">
+                                        <Grid>
+                                            <Label Content="{Binding R5C2}" FontSize="16" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                                        </Grid>
+                                    </Border>
+                                    <Border Grid.Row="5" Grid.Column="3" Style="{StaticResource BorderTable}">
+                                        <Grid>
+                                            <Label Content="{Binding R5C3}" FontSize="16" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                                        </Grid>
+                                    </Border>
+                                    <Border Grid.Row="5" Grid.Column="4" Style="{StaticResource BorderTable}" Background="PeachPuff">
+                                        <Grid>
+                                            <Label Content="{Binding R5C4}" FontSize="16" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                                        </Grid>
+                                    </Border>
+                                    <Border Grid.Row="5" Grid.Column="5" Style="{StaticResource BorderTable}">
+                                        <Grid>
+                                            <Label Content="{Binding R5C5}" FontSize="16" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                                        </Grid>
+                                    </Border>
+                                    <Border Grid.Row="5" Grid.Column="6" Style="{StaticResource BorderTable}">
+                                        <Grid>
+                                            <Label Content="{Binding R5C6}" FontSize="16" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                                        </Grid>
+                                    </Border>
+                                    <Border Grid.Row="5" Grid.Column="7" Style="{StaticResource BorderTable}">
+                                        <Grid>
+                                            <Label Content="{Binding R5C7}" FontSize="16" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                                        </Grid>
+                                    </Border>
+                                    <Border Grid.Row="6" Grid.Column="0" Style="{StaticResource BorderTable}" Background="Orange">
+                                        <Grid>
+                                            <Label Content="2 Чакра" VerticalAlignment="Top" Style="{StaticResource LabelTable}"/>
+                                            <Label Content="6 Поколение" VerticalAlignment="Bottom" Style="{StaticResource LabelTable}"/>
+                                        </Grid>
+                                    </Border>
+                                    <Border Grid.Row="6" Grid.Column="1" Style="{StaticResource BorderTable}">
+                                        <Grid>
+                                            <Label Content="{Binding R6C1}" FontSize="16" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                                        </Grid>
+                                    </Border>
+                                    <Border Grid.Row="6" Grid.Column="2" Style="{StaticResource BorderTable}">
+                                        <Grid>
+                                            <Label Content="{Binding R6C2}" FontSize="16" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                                        </Grid>
+                                    </Border>
+                                    <Border Grid.Row="6" Grid.Column="3" Style="{StaticResource BorderTable}">
+                                        <Grid>
+                                            <Label Content="{Binding R6C3}" FontSize="16" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                                        </Grid>
+                                    </Border>
+                                    <Border Grid.Row="6" Grid.Column="4" Style="{StaticResource BorderTable}" Background="PeachPuff">
+                                        <Grid>
+                                            <Label Content="{Binding R6C4}" FontSize="16" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                                        </Grid>
+                                    </Border>
+                                    <Border Grid.Row="6" Grid.Column="5" Style="{StaticResource BorderTable}">
+                                        <Grid>
+                                            <Label Content="{Binding R6C5}" FontSize="16" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                                        </Grid>
+                                    </Border>
+                                    <Border Grid.Row="6" Grid.Column="6" Style="{StaticResource BorderTable}">
+                                        <Grid>
+                                            <Label Content="{Binding R6C6}" FontSize="16" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                                        </Grid>
+                                    </Border>
+                                    <Border Grid.Row="6" Grid.Column="7" Style="{StaticResource BorderTable}">
+                                        <Grid>
+                                            <Label Content="{Binding R6C7}" FontSize="16" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                                        </Grid>
+                                    </Border>
+                                    <Border Grid.Row="7" Grid.Column="0" Style="{StaticResource BorderTable}" Background="IndianRed">
+                                        <Grid>
+                                            <Label Content="1 Чакра" VerticalAlignment="Top" Style="{StaticResource LabelTable}" Foreground="White"/>
+                                            <Label Content="7 Поколение" VerticalAlignment="Bottom" Style="{StaticResource LabelTable}" Foreground="White"/>
+                                        </Grid>
+                                    </Border>
+                                    <Border Grid.Row="7" Grid.Column="1" Style="{StaticResource BorderTable}">
+                                        <Grid>
+                                            <Label Content="{Binding R7C1}" FontSize="16" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                                        </Grid>
+                                    </Border>
+                                    <Border Grid.Row="7" Grid.Column="2" Style="{StaticResource BorderTable}">
+                                        <Grid>
+                                            <Label Content="{Binding R7C2}" FontSize="16" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                                        </Grid>
+                                    </Border>
+                                    <Border Grid.Row="7" Grid.Column="3" Style="{StaticResource BorderTable}">
+                                        <Grid>
+                                            <Label Content="{Binding R7C3}" FontSize="16" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                                        </Grid>
+                                    </Border>
+                                    <Border Grid.Row="7" Grid.Column="4" Style="{StaticResource BorderTable}" Background="PeachPuff">
+                                        <Grid>
+                                            <Label Content="{Binding R7C4}" FontSize="16" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                                        </Grid>
+                                    </Border>
+                                    <Border Grid.Row="7" Grid.Column="5" Style="{StaticResource BorderTable}">
+                                        <Grid>
+                                            <Label Content="{Binding R7C5}" FontSize="16" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                                        </Grid>
+                                    </Border>
+                                    <Border Grid.Row="7" Grid.Column="6" Style="{StaticResource BorderTable}">
+                                        <Grid>
+                                            <Label Content="{Binding R7C6}" FontSize="16" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                                        </Grid>
+                                    </Border>
+                                    <Border Grid.Row="7" Grid.Column="7" Style="{StaticResource BorderTable}">
+                                        <Grid>
+                                            <Label Content="{Binding R7C7}" FontSize="16" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                                        </Grid>
+                                    </Border>
+                                </Grid>
+                            </Border>
+
+                            <!--#endregion-->
+
+
+                        </Grid>
+
+                    </Grid>
+
+                </BlockUIContainer>
+                <BlockUIContainer>
+                    <Grid Width="790" Height="1120" ShowGridLines="True">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <!--#region Small Matrixs -->
+
+                        <Grid Grid.Row="0" Grid.Column="0">
+                            <Image Source="/Resources/Icon/Logo3.png" Margin="20,0,0,0" Width="350" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                        </Grid>
+
+                        <Grid Grid.Row="0" Grid.Column="1">
+
+                            <Rectangle Height="150" Width="150" Stroke="DarkGoldenrod" StrokeThickness="4" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="60,60,0,0"/>
+                            <Rectangle Height="150" Width="150" Stroke="DarkGoldenrod" StrokeThickness="4" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="135,29,0,0">
+                                <Rectangle.RenderTransform>
+                                    <RotateTransform Angle="45"/>
+                                </Rectangle.RenderTransform>
+                            </Rectangle>
+
+                            <Border Margin="9,115,0,0" Style="{StaticResource IndianRed}">
+                                <Label Content="{Binding SA1}" Style="{StaticResource WhiteText}"/>
+                            </Border>
+                            <Border Margin="115,9,0,0" Style="{StaticResource IndianRed}">
+                                <Label Content="{Binding SA2}" Style="{StaticResource WhiteText}"/>
+                            </Border>
+                            <Border Margin="221,115,0,0" Style="{StaticResource IndianRed}">
+                                <Label Content="{Binding SA3}" Style="{StaticResource WhiteText}"/>
+                            </Border>
+                            <Border Margin="115,221,0,0" Style="{StaticResource IndianRed}">
+                                <Label Content="{Binding SA4}" Style="{StaticResource WhiteText}"/>
+                            </Border>
+                            <Border Margin="40,40,0,0" Style="{StaticResource IndianRed}">
+                                <Label Content="{Binding SA5}" Style="{StaticResource WhiteText}"/>
+                            </Border>
+                            <Border Margin="190,40,0,0" Style="{StaticResource IndianRed}">
+                                <Label Content="{Binding SA6}" Style="{StaticResource WhiteText}"/>
+                            </Border>
+                            <Border Margin="190,190,0,0" Style="{StaticResource IndianRed}">
+                                <Label Content="{Binding SA7}" Style="{StaticResource WhiteText}"/>
+                            </Border>
+                            <Border Margin="40,190,0,0" Style="{StaticResource IndianRed}">
+                                <Label Content="{Binding SA8}" Style="{StaticResource WhiteText}"/>
+                            </Border>
+                            <Border Margin="115,115,0,0" Style="{StaticResource IndianRed}">
+                                <Label Content="{Binding SA9}" Style="{StaticResource WhiteText}"/>
+                            </Border>
+
+                            <Border Margin="5,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+                                <Label Content="1 Колено" Style="{StaticResource BordoText}"/>
+                            </Border>
+
+                            <Border Margin="0,10,100,0" HorizontalAlignment="Right" VerticalAlignment="Top">
+                                <Label Content="Н:" Style="{StaticResource BordoText}"/>
+                            </Border>
+                            <Border Margin="0,5,60,0" Style="{StaticResource Gold}">
+                                <Label Content="{Binding S1}" Style="{StaticResource BordoText}"/>
+                            </Border>
+                            <Border Margin="0,55,100,0" HorizontalAlignment="Right" VerticalAlignment="Top">
+                                <Label Content="З:" Style="{StaticResource BordoText}"/>
+                            </Border>
+                            <Border Margin="0,50,60,0" Style="{StaticResource Gold}">
+                                <Label Content="{Binding EA1}" Style="{StaticResource BordoText}"/>
+                            </Border>
+                            <Border Margin="0,27.5,10,0" Style="{StaticResource Gold}">
+                                <Label Content="{Binding SEA1}" Style="{StaticResource BordoText}"/>
+                            </Border>
+
+                            <Border Margin="0,100,100,0" HorizontalAlignment="Right" VerticalAlignment="Top">
+                                <Label Content="М:" Style="{StaticResource BordoText}"/>
+                            </Border>
+                            <Border Margin="0,95,60,0" Style="{StaticResource Gold}">
+                                <Label Content="{Binding M1}" Style="{StaticResource BordoText}"/>
+                            </Border>
+                            <Border Margin="0,145,100,0" HorizontalAlignment="Right" VerticalAlignment="Top">
+                                <Label Content="Ж:" Style="{StaticResource BordoText}"/>
+                            </Border>
+                            <Border Margin="0,140,60,0" Style="{StaticResource Gold}">
+                                <Label Content="{Binding W1}" Style="{StaticResource BordoText}"/>
+                            </Border>
+                            <Border Margin="0,117.5,10,0" Style="{StaticResource Gold}">
+                                <Label Content="{Binding MW1}" Style="{StaticResource BordoText}"/>
+                            </Border>
+
+                            <Border Margin="0,180,18,0" HorizontalAlignment="Right" VerticalAlignment="Top">
+                                <Label Content="Цел. Ключ" Style="{StaticResource BordoText}"/>
+                            </Border>
+                            <Border Margin="0,210,110,0" Style="{StaticResource Gold}">
+                                <Label Content="{Binding SEA1}" Style="{StaticResource BordoText}"/>
+                            </Border>
+                            <Border Margin="0,210,60,0" Style="{StaticResource Gold}">
+                                <Label Content="{Binding MW1}" Style="{StaticResource BordoText}"/>
+                            </Border>
+                            <Border Margin="0,210,10,0" Style="{StaticResource Gold}">
+                                <Label Content="{Binding K1}" Style="{StaticResource BordoText}"/>
+                            </Border>
+
+                            <!--#region Lines -->
+                            <Line X1="60" Y1="60" X2="210" Y2="210" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+                            <Line X1="60" Y1="210" X2="210" Y2="60" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+                            <Line X1="135" Y1="29" X2="135" Y2="241" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+                            <Line X1="29" Y1="135" X2="241" Y2="135" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+
+                            <Line X1="60" Y1="60" X2="135" Y2="29" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+                            <Line X1="210" Y1="60" X2="135" Y2="29" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+                            <Line X1="210" Y1="60" X2="241" Y2="135" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+                            <Line X1="210" Y1="210" X2="241" Y2="135" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+                            <Line X1="210" Y1="210" X2="135" Y2="241" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+                            <Line X1="60" Y1="210" X2="135" Y2="241" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+                            <Line X1="60" Y1="210" X2="29" Y2="135" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+                            <Line X1="60" Y1="60" X2="29" Y2="135" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+
+                            <Line X1="315" Y1="25" X2="365" Y2="47.5" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+                            <Line X1="315" Y1="70" X2="365" Y2="47.5" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+                            <Line X1="315" Y1="115" X2="365" Y2="137.5" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+                            <Line X1="315" Y1="160" X2="365" Y2="137.5" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+                            <!--#endregion-->
+
+                        </Grid>
+
+                        <Grid Grid.Row="1" Grid.Column="0">
+
+                            <Rectangle Height="150" Width="150" Stroke="DarkGoldenrod" StrokeThickness="4" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="60,60,0,0"/>
+                            <Rectangle Height="150" Width="150" Stroke="DarkGoldenrod" StrokeThickness="4" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="135,29,0,0">
+                                <Rectangle.RenderTransform>
+                                    <RotateTransform Angle="45"/>
+                                </Rectangle.RenderTransform>
+                            </Rectangle>
+
+                            <Border Margin="9,115,0,0" Style="{StaticResource Orange}">
+                                <Label Content="{Binding SB1}" Style="{StaticResource WhiteText}"/>
+                            </Border>
+                            <Border Margin="115,9,0,0" Style="{StaticResource Orange}">
+                                <Label Content="{Binding SB2}" Style="{StaticResource WhiteText}"/>
+                            </Border>
+                            <Border Margin="221,115,0,0" Style="{StaticResource Orange}">
+                                <Label Content="{Binding SB3}" Style="{StaticResource WhiteText}"/>
+                            </Border>
+                            <Border Margin="115,221,0,0" Style="{StaticResource Orange}">
+                                <Label Content="{Binding SB4}" Style="{StaticResource WhiteText}"/>
+                            </Border>
+                            <Border Margin="40,40,0,0" Style="{StaticResource Orange}">
+                                <Label Content="{Binding SB5}" Style="{StaticResource WhiteText}"/>
+                            </Border>
+                            <Border Margin="190,40,0,0" Style="{StaticResource Orange}">
+                                <Label Content="{Binding SB6}" Style="{StaticResource WhiteText}"/>
+                            </Border>
+                            <Border Margin="190,190,0,0" Style="{StaticResource Orange}">
+                                <Label Content="{Binding SB7}" Style="{StaticResource WhiteText}"/>
+                            </Border>
+                            <Border Margin="40,190,0,0" Style="{StaticResource Orange}">
+                                <Label Content="{Binding SB8}" Style="{StaticResource WhiteText}"/>
+                            </Border>
+                            <Border Margin="115,115,0,0" Style="{StaticResource Orange}">
+                                <Label Content="{Binding SB9}" Style="{StaticResource WhiteText}"/>
+                            </Border>
+
+                            <Border Margin="5,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+                                <Label Content="2 Колено" Style="{StaticResource BordoText}"/>
+                            </Border>
+
+                            <Border Margin="0,10,100,0" HorizontalAlignment="Right" VerticalAlignment="Top">
+                                <Label Content="Н:" Style="{StaticResource BordoText}"/>
+                            </Border>
+                            <Border Margin="0,5,60,0" Style="{StaticResource Gold}">
+                                <Label Content="{Binding S2}" Style="{StaticResource BordoText}"/>
+                            </Border>
+                            <Border Margin="0,55,100,0" HorizontalAlignment="Right" VerticalAlignment="Top">
+                                <Label Content="З:" Style="{StaticResource BordoText}"/>
+                            </Border>
+                            <Border Margin="0,50,60,0" Style="{StaticResource Gold}">
+                                <Label Content="{Binding EA2}" Style="{StaticResource BordoText}"/>
+                            </Border>
+                            <Border Margin="0,27.5,10,0" Style="{StaticResource Gold}">
+                                <Label Content="{Binding SEA2}" Style="{StaticResource BordoText}"/>
+                            </Border>
+
+                            <Border Margin="0,100,100,0" HorizontalAlignment="Right" VerticalAlignment="Top">
+                                <Label Content="М:" Style="{StaticResource BordoText}"/>
+                            </Border>
+                            <Border Margin="0,95,60,0" Style="{StaticResource Gold}">
+                                <Label Content="{Binding M2}" Style="{StaticResource BordoText}"/>
+                            </Border>
+                            <Border Margin="0,145,100,0" HorizontalAlignment="Right" VerticalAlignment="Top">
+                                <Label Content="Ж:" Style="{StaticResource BordoText}"/>
+                            </Border>
+                            <Border Margin="0,140,60,0" Style="{StaticResource Gold}">
+                                <Label Content="{Binding W2}" Style="{StaticResource BordoText}"/>
+                            </Border>
+                            <Border Margin="0,117.5,10,0" Style="{StaticResource Gold}">
+                                <Label Content="{Binding MW2}" Style="{StaticResource BordoText}"/>
+                            </Border>
+
+                            <Border Margin="0,180,18,0" HorizontalAlignment="Right" VerticalAlignment="Top">
+                                <Label Content="Цел. Ключ" Style="{StaticResource BordoText}"/>
+                            </Border>
+                            <Border Margin="0,210,110,0" Style="{StaticResource Gold}">
+                                <Label Content="{Binding SEA2}" Style="{StaticResource BordoText}"/>
+                            </Border>
+                            <Border Margin="0,210,60,0" Style="{StaticResource Gold}">
+                                <Label Content="{Binding MW2}" Style="{StaticResource BordoText}"/>
+                            </Border>
+                            <Border Margin="0,210,10,0" Style="{StaticResource Gold}">
+                                <Label Content="{Binding K2}" Style="{StaticResource BordoText}"/>
+                            </Border>
+
+                            <!--#region Lines -->
+                            <Line X1="60" Y1="60" X2="210" Y2="210" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+                            <Line X1="60" Y1="210" X2="210" Y2="60" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+                            <Line X1="135" Y1="29" X2="135" Y2="241" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+                            <Line X1="29" Y1="135" X2="241" Y2="135" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+
+                            <Line X1="60" Y1="60" X2="135" Y2="29" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+                            <Line X1="210" Y1="60" X2="135" Y2="29" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+                            <Line X1="210" Y1="60" X2="241" Y2="135" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+                            <Line X1="210" Y1="210" X2="241" Y2="135" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+                            <Line X1="210" Y1="210" X2="135" Y2="241" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+                            <Line X1="60" Y1="210" X2="135" Y2="241" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+                            <Line X1="60" Y1="210" X2="29" Y2="135" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+                            <Line X1="60" Y1="60" X2="29" Y2="135" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+
+                            <Line X1="315" Y1="25" X2="365" Y2="47.5" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+                            <Line X1="315" Y1="70" X2="365" Y2="47.5" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+                            <Line X1="315" Y1="115" X2="365" Y2="137.5" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+                            <Line X1="315" Y1="160" X2="365" Y2="137.5" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+                            <!--#endregion-->
+
+                        </Grid>
+
+                        <Grid Grid.Row="1" Grid.Column="1">
+
+                            <Rectangle Height="150" Width="150" Stroke="DarkGoldenrod" StrokeThickness="4" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="60,60,0,0"/>
+                            <Rectangle Height="150" Width="150" Stroke="DarkGoldenrod" StrokeThickness="4" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="135,29,0,0">
+                                <Rectangle.RenderTransform>
+                                    <RotateTransform Angle="45"/>
+                                </Rectangle.RenderTransform>
+                            </Rectangle>
+
+                            <Border Margin="9,115,0,0" Style="{StaticResource Yellow}">
+                                <Label Content="{Binding SC1}" Style="{StaticResource BlackText}"/>
+                            </Border>
+                            <Border Margin="115,9,0,0" Style="{StaticResource Yellow}">
+                                <Label Content="{Binding SC2}" Style="{StaticResource BlackText}"/>
+                            </Border>
+                            <Border Margin="221,115,0,0" Style="{StaticResource Yellow}">
+                                <Label Content="{Binding SC3}" Style="{StaticResource BlackText}"/>
+                            </Border>
+                            <Border Margin="115,221,0,0" Style="{StaticResource Yellow}">
+                                <Label Content="{Binding SC4}" Style="{StaticResource BlackText}"/>
+                            </Border>
+                            <Border Margin="40,40,0,0" Style="{StaticResource Yellow}">
+                                <Label Content="{Binding SC5}" Style="{StaticResource BlackText}"/>
+                            </Border>
+                            <Border Margin="190,40,0,0" Style="{StaticResource Yellow}">
+                                <Label Content="{Binding SC6}" Style="{StaticResource BlackText}"/>
+                            </Border>
+                            <Border Margin="190,190,0,0" Style="{StaticResource Yellow}">
+                                <Label Content="{Binding SC7}" Style="{StaticResource BlackText}"/>
+                            </Border>
+                            <Border Margin="40,190,0,0" Style="{StaticResource Yellow}">
+                                <Label Content="{Binding SC8}" Style="{StaticResource BlackText}"/>
+                            </Border>
+                            <Border Margin="115,115,0,0" Style="{StaticResource Yellow}">
+                                <Label Content="{Binding SC9}" Style="{StaticResource BlackText}"/>
+                            </Border>
+
+                            <Border Margin="5,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+                                <Label Content="3 Колено" Style="{StaticResource BordoText}"/>
+                            </Border>
+
+                            <Border Margin="0,10,100,0" HorizontalAlignment="Right" VerticalAlignment="Top">
+                                <Label Content="Н:" Style="{StaticResource BordoText}"/>
+                            </Border>
+                            <Border Margin="0,5,60,0" Style="{StaticResource Gold}">
+                                <Label Content="{Binding S3}" Style="{StaticResource BordoText}"/>
+                            </Border>
+                            <Border Margin="0,55,100,0" HorizontalAlignment="Right" VerticalAlignment="Top">
+                                <Label Content="З:" Style="{StaticResource BordoText}"/>
+                            </Border>
+                            <Border Margin="0,50,60,0" Style="{StaticResource Gold}">
+                                <Label Content="{Binding EA3}" Style="{StaticResource BordoText}"/>
+                            </Border>
+                            <Border Margin="0,27.5,10,0" Style="{StaticResource Gold}">
+                                <Label Content="{Binding SEA3}" Style="{StaticResource BordoText}"/>
+                            </Border>
+
+                            <Border Margin="0,100,100,0" HorizontalAlignment="Right" VerticalAlignment="Top">
+                                <Label Content="М:" Style="{StaticResource BordoText}"/>
+                            </Border>
+                            <Border Margin="0,95,60,0" Style="{StaticResource Gold}">
+                                <Label Content="{Binding M3}" Style="{StaticResource BordoText}"/>
+                            </Border>
+                            <Border Margin="0,145,100,0" HorizontalAlignment="Right" VerticalAlignment="Top">
+                                <Label Content="Ж:" Style="{StaticResource BordoText}"/>
+                            </Border>
+                            <Border Margin="0,140,60,0" Style="{StaticResource Gold}">
+                                <Label Content="{Binding W3}" Style="{StaticResource BordoText}"/>
+                            </Border>
+                            <Border Margin="0,117.5,10,0" Style="{StaticResource Gold}">
+                                <Label Content="{Binding MW3}" Style="{StaticResource BordoText}"/>
+                            </Border>
+
+                            <Border Margin="0,180,18,0" HorizontalAlignment="Right" VerticalAlignment="Top">
+                                <Label Content="Цел. Ключ" Style="{StaticResource BordoText}"/>
+                            </Border>
+                            <Border Margin="0,210,110,0" Style="{StaticResource Gold}">
+                                <Label Content="{Binding SEA3}" Style="{StaticResource BordoText}"/>
+                            </Border>
+                            <Border Margin="0,210,60,0" Style="{StaticResource Gold}">
+                                <Label Content="{Binding MW3}" Style="{StaticResource BordoText}"/>
+                            </Border>
+                            <Border Margin="0,210,10,0" Style="{StaticResource Gold}">
+                                <Label Content="{Binding K3}" Style="{StaticResource BordoText}"/>
+                            </Border>
+
+                            <!--#region Lines -->
+                            <Line X1="60" Y1="60" X2="210" Y2="210" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+                            <Line X1="60" Y1="210" X2="210" Y2="60" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+                            <Line X1="135" Y1="29" X2="135" Y2="241" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+                            <Line X1="29" Y1="135" X2="241" Y2="135" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+
+                            <Line X1="60" Y1="60" X2="135" Y2="29" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+                            <Line X1="210" Y1="60" X2="135" Y2="29" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+                            <Line X1="210" Y1="60" X2="241" Y2="135" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+                            <Line X1="210" Y1="210" X2="241" Y2="135" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+                            <Line X1="210" Y1="210" X2="135" Y2="241" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+                            <Line X1="60" Y1="210" X2="135" Y2="241" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+                            <Line X1="60" Y1="210" X2="29" Y2="135" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+                            <Line X1="60" Y1="60" X2="29" Y2="135" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+
+                            <Line X1="315" Y1="25" X2="365" Y2="47.5" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+                            <Line X1="315" Y1="70" X2="365" Y2="47.5" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+                            <Line X1="315" Y1="115" X2="365" Y2="137.5" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+                            <Line X1="315" Y1="160" X2="365" Y2="137.5" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+                            <!--#endregion-->
+
+                        </Grid>
+
+                        <Grid Grid.Row="2" Grid.Column="0">
+
+                            <Rectangle Height="150" Width="150" Stroke="DarkGoldenrod" StrokeThickness="4" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="60,60,0,0"/>
+                            <Rectangle Height="150" Width="150" Stroke="DarkGoldenrod" StrokeThickness="4" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="135,29,0,0">
+                                <Rectangle.RenderTransform>
+                                    <RotateTransform Angle="45"/>
+                                </Rectangle.RenderTransform>
+                            </Rectangle>
+
+                            <Border Margin="9,115,0,0" Style="{StaticResource Green}">
+                                <Label Content="{Binding SD1}" Style="{StaticResource WhiteText}"/>
+                            </Border>
+                            <Border Margin="115,9,0,0" Style="{StaticResource Green}">
+                                <Label Content="{Binding SD2}" Style="{StaticResource WhiteText}"/>
+                            </Border>
+                            <Border Margin="221,115,0,0" Style="{StaticResource Green}">
+                                <Label Content="{Binding SD3}" Style="{StaticResource WhiteText}"/>
+                            </Border>
+                            <Border Margin="115,221,0,0" Style="{StaticResource Green}">
+                                <Label Content="{Binding SD4}" Style="{StaticResource WhiteText}"/>
+                            </Border>
+                            <Border Margin="40,40,0,0" Style="{StaticResource Green}">
+                                <Label Content="{Binding SD5}" Style="{StaticResource WhiteText}"/>
+                            </Border>
+                            <Border Margin="190,40,0,0" Style="{StaticResource Green}">
+                                <Label Content="{Binding SD6}" Style="{StaticResource WhiteText}"/>
+                            </Border>
+                            <Border Margin="190,190,0,0" Style="{StaticResource Green}">
+                                <Label Content="{Binding SD7}" Style="{StaticResource WhiteText}"/>
+                            </Border>
+                            <Border Margin="40,190,0,0" Style="{StaticResource Green}">
+                                <Label Content="{Binding SD8}" Style="{StaticResource WhiteText}"/>
+                            </Border>
+                            <Border Margin="115,115,0,0" Style="{StaticResource Green}">
+                                <Label Content="{Binding SD9}" Style="{StaticResource WhiteText}"/>
+                            </Border>
+
+                            <Border Margin="5,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+                                <Label Content="4 Колено" Style="{StaticResource BordoText}"/>
+                            </Border>
+
+                            <Border Margin="0,10,100,0" HorizontalAlignment="Right" VerticalAlignment="Top">
+                                <Label Content="Н:" Style="{StaticResource BordoText}"/>
+                            </Border>
+                            <Border Margin="0,5,60,0" Style="{StaticResource Gold}">
+                                <Label Content="{Binding S4}" Style="{StaticResource BordoText}"/>
+                            </Border>
+                            <Border Margin="0,55,100,0" HorizontalAlignment="Right" VerticalAlignment="Top">
+                                <Label Content="З:" Style="{StaticResource BordoText}"/>
+                            </Border>
+                            <Border Margin="0,50,60,0" Style="{StaticResource Gold}">
+                                <Label Content="{Binding EA4}" Style="{StaticResource BordoText}"/>
+                            </Border>
+                            <Border Margin="0,27.5,10,0" Style="{StaticResource Gold}">
+                                <Label Content="{Binding SEA4}" Style="{StaticResource BordoText}"/>
+                            </Border>
+
+                            <Border Margin="0,100,100,0" HorizontalAlignment="Right" VerticalAlignment="Top">
+                                <Label Content="М:" Style="{StaticResource BordoText}"/>
+                            </Border>
+                            <Border Margin="0,95,60,0" Style="{StaticResource Gold}">
+                                <Label Content="{Binding M4}" Style="{StaticResource BordoText}"/>
+                            </Border>
+                            <Border Margin="0,145,100,0" HorizontalAlignment="Right" VerticalAlignment="Top">
+                                <Label Content="Ж:" Style="{StaticResource BordoText}"/>
+                            </Border>
+                            <Border Margin="0,140,60,0" Style="{StaticResource Gold}">
+                                <Label Content="{Binding W4}" Style="{StaticResource BordoText}"/>
+                            </Border>
+                            <Border Margin="0,117.5,10,0" Style="{StaticResource Gold}">
+                                <Label Content="{Binding MW4}" Style="{StaticResource BordoText}"/>
+                            </Border>
+
+                            <Border Margin="0,180,18,0" HorizontalAlignment="Right" VerticalAlignment="Top">
+                                <Label Content="Цел. Ключ" Style="{StaticResource BordoText}"/>
+                            </Border>
+                            <Border Margin="0,210,110,0" Style="{StaticResource Gold}">
+                                <Label Content="{Binding SEA4}" Style="{StaticResource BordoText}"/>
+                            </Border>
+                            <Border Margin="0,210,60,0" Style="{StaticResource Gold}">
+                                <Label Content="{Binding MW4}" Style="{StaticResource BordoText}"/>
+                            </Border>
+                            <Border Margin="0,210,10,0" Style="{StaticResource Gold}">
+                                <Label Content="{Binding K4}" Style="{StaticResource BordoText}"/>
+                            </Border>
+
+                            <!--#region Lines -->
+                            <Line X1="60" Y1="60" X2="210" Y2="210" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+                            <Line X1="60" Y1="210" X2="210" Y2="60" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+                            <Line X1="135" Y1="29" X2="135" Y2="241" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+                            <Line X1="29" Y1="135" X2="241" Y2="135" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+
+                            <Line X1="60" Y1="60" X2="135" Y2="29" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+                            <Line X1="210" Y1="60" X2="135" Y2="29" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+                            <Line X1="210" Y1="60" X2="241" Y2="135" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+                            <Line X1="210" Y1="210" X2="241" Y2="135" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+                            <Line X1="210" Y1="210" X2="135" Y2="241" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+                            <Line X1="60" Y1="210" X2="135" Y2="241" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+                            <Line X1="60" Y1="210" X2="29" Y2="135" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+                            <Line X1="60" Y1="60" X2="29" Y2="135" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+
+                            <Line X1="315" Y1="25" X2="365" Y2="47.5" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+                            <Line X1="315" Y1="70" X2="365" Y2="47.5" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+                            <Line X1="315" Y1="115" X2="365" Y2="137.5" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+                            <Line X1="315" Y1="160" X2="365" Y2="137.5" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+                            <!--#endregion-->
+
+                        </Grid>
+
+                        <Grid Grid.Row="2" Grid.Column="1">
+
+                            <Rectangle Height="150" Width="150" Stroke="DarkGoldenrod" StrokeThickness="4" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="60,60,0,0"/>
+                            <Rectangle Height="150" Width="150" Stroke="DarkGoldenrod" StrokeThickness="4" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="135,29,0,0">
+                                <Rectangle.RenderTransform>
+                                    <RotateTransform Angle="45"/>
+                                </Rectangle.RenderTransform>
+                            </Rectangle>
+
+                            <Border Margin="9,115,0,0" Style="{StaticResource LightBlue}">
+                                <Label Content="{Binding SE1}" Style="{StaticResource BlackText}"/>
+                            </Border>
+                            <Border Margin="115,9,0,0" Style="{StaticResource LightBlue}">
+                                <Label Content="{Binding SE2}" Style="{StaticResource BlackText}"/>
+                            </Border>
+                            <Border Margin="221,115,0,0" Style="{StaticResource LightBlue}">
+                                <Label Content="{Binding SE3}" Style="{StaticResource BlackText}"/>
+                            </Border>
+                            <Border Margin="115,221,0,0" Style="{StaticResource LightBlue}">
+                                <Label Content="{Binding SE4}" Style="{StaticResource BlackText}"/>
+                            </Border>
+                            <Border Margin="40,40,0,0" Style="{StaticResource LightBlue}">
+                                <Label Content="{Binding SE5}" Style="{StaticResource BlackText}"/>
+                            </Border>
+                            <Border Margin="190,40,0,0" Style="{StaticResource LightBlue}">
+                                <Label Content="{Binding SE6}" Style="{StaticResource BlackText}"/>
+                            </Border>
+                            <Border Margin="190,190,0,0" Style="{StaticResource LightBlue}">
+                                <Label Content="{Binding SE7}" Style="{StaticResource BlackText}"/>
+                            </Border>
+                            <Border Margin="40,190,0,0" Style="{StaticResource LightBlue}">
+                                <Label Content="{Binding SE8}" Style="{StaticResource BlackText}"/>
+                            </Border>
+                            <Border Margin="115,115,0,0" Style="{StaticResource LightBlue}">
+                                <Label Content="{Binding SE9}" Style="{StaticResource BlackText}"/>
+                            </Border>
+
+                            <Border Margin="5,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+                                <Label Content="5 Колено" Style="{StaticResource BordoText}"/>
+                            </Border>
+
+                            <Border Margin="0,10,100,0" HorizontalAlignment="Right" VerticalAlignment="Top">
+                                <Label Content="Н:" Style="{StaticResource BordoText}"/>
+                            </Border>
+                            <Border Margin="0,5,60,0" Style="{StaticResource Gold}">
+                                <Label Content="{Binding S5}" Style="{StaticResource BordoText}"/>
+                            </Border>
+                            <Border Margin="0,55,100,0" HorizontalAlignment="Right" VerticalAlignment="Top">
+                                <Label Content="З:" Style="{StaticResource BordoText}"/>
+                            </Border>
+                            <Border Margin="0,50,60,0" Style="{StaticResource Gold}">
+                                <Label Content="{Binding EA5}" Style="{StaticResource BordoText}"/>
+                            </Border>
+                            <Border Margin="0,27.5,10,0" Style="{StaticResource Gold}">
+                                <Label Content="{Binding SEA5}" Style="{StaticResource BordoText}"/>
+                            </Border>
+
+                            <Border Margin="0,100,100,0" HorizontalAlignment="Right" VerticalAlignment="Top">
+                                <Label Content="М:" Style="{StaticResource BordoText}"/>
+                            </Border>
+                            <Border Margin="0,95,60,0" Style="{StaticResource Gold}">
+                                <Label Content="{Binding M5}" Style="{StaticResource BordoText}"/>
+                            </Border>
+                            <Border Margin="0,145,100,0" HorizontalAlignment="Right" VerticalAlignment="Top">
+                                <Label Content="Ж:" Style="{StaticResource BordoText}"/>
+                            </Border>
+                            <Border Margin="0,140,60,0" Style="{StaticResource Gold}">
+                                <Label Content="{Binding W5}" Style="{StaticResource BordoText}"/>
+                            </Border>
+                            <Border Margin="0,117.5,10,0" Style="{StaticResource Gold}">
+                                <Label Content="{Binding MW5}" Style="{StaticResource BordoText}"/>
+                            </Border>
+
+                            <Border Margin="0,180,18,0" HorizontalAlignment="Right" VerticalAlignment="Top">
+                                <Label Content="Цел. Ключ" Style="{StaticResource BordoText}"/>
+                            </Border>
+                            <Border Margin="0,210,110,0" Style="{StaticResource Gold}">
+                                <Label Content="{Binding SEA5}" Style="{StaticResource BordoText}"/>
+                            </Border>
+                            <Border Margin="0,210,60,0" Style="{StaticResource Gold}">
+                                <Label Content="{Binding MW5}" Style="{StaticResource BordoText}"/>
+                            </Border>
+                            <Border Margin="0,210,10,0" Style="{StaticResource Gold}">
+                                <Label Content="{Binding K5}" Style="{StaticResource BordoText}"/>
+                            </Border>
+
+                            <!--#region Lines -->
+                            <Line X1="60" Y1="60" X2="210" Y2="210" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+                            <Line X1="60" Y1="210" X2="210" Y2="60" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+                            <Line X1="135" Y1="29" X2="135" Y2="241" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+                            <Line X1="29" Y1="135" X2="241" Y2="135" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+
+                            <Line X1="60" Y1="60" X2="135" Y2="29" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+                            <Line X1="210" Y1="60" X2="135" Y2="29" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+                            <Line X1="210" Y1="60" X2="241" Y2="135" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+                            <Line X1="210" Y1="210" X2="241" Y2="135" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+                            <Line X1="210" Y1="210" X2="135" Y2="241" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+                            <Line X1="60" Y1="210" X2="135" Y2="241" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+                            <Line X1="60" Y1="210" X2="29" Y2="135" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+                            <Line X1="60" Y1="60" X2="29" Y2="135" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+
+                            <Line X1="315" Y1="25" X2="365" Y2="47.5" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+                            <Line X1="315" Y1="70" X2="365" Y2="47.5" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+                            <Line X1="315" Y1="115" X2="365" Y2="137.5" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+                            <Line X1="315" Y1="160" X2="365" Y2="137.5" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+                            <!--#endregion-->
+
+                        </Grid>
+
+                        <Grid Grid.Row="3" Grid.Column="0">
+
+                            <Rectangle Height="150" Width="150" Stroke="DarkGoldenrod" StrokeThickness="4" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="60,60,0,0"/>
+                            <Rectangle Height="150" Width="150" Stroke="DarkGoldenrod" StrokeThickness="4" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="135,29,0,0">
+                                <Rectangle.RenderTransform>
+                                    <RotateTransform Angle="45"/>
+                                </Rectangle.RenderTransform>
+                            </Rectangle>
+
+                            <Border Margin="9,115,0,0" Style="{StaticResource Blue}">
+                                <Label Content="{Binding SF1}" Style="{StaticResource WhiteText}"/>
+                            </Border>
+                            <Border Margin="115,9,0,0" Style="{StaticResource Blue}">
+                                <Label Content="{Binding SF2}" Style="{StaticResource WhiteText}"/>
+                            </Border>
+                            <Border Margin="221,115,0,0" Style="{StaticResource Blue}">
+                                <Label Content="{Binding SF3}" Style="{StaticResource WhiteText}"/>
+                            </Border>
+                            <Border Margin="115,221,0,0" Style="{StaticResource Blue}">
+                                <Label Content="{Binding SF4}" Style="{StaticResource WhiteText}"/>
+                            </Border>
+                            <Border Margin="40,40,0,0" Style="{StaticResource Blue}">
+                                <Label Content="{Binding SF5}" Style="{StaticResource WhiteText}"/>
+                            </Border>
+                            <Border Margin="190,40,0,0" Style="{StaticResource Blue}">
+                                <Label Content="{Binding SF6}" Style="{StaticResource WhiteText}"/>
+                            </Border>
+                            <Border Margin="190,190,0,0" Style="{StaticResource Blue}">
+                                <Label Content="{Binding SF7}" Style="{StaticResource WhiteText}"/>
+                            </Border>
+                            <Border Margin="40,190,0,0" Style="{StaticResource Blue}">
+                                <Label Content="{Binding SF8}" Style="{StaticResource WhiteText}"/>
+                            </Border>
+                            <Border Margin="115,115,0,0" Style="{StaticResource Blue}">
+                                <Label Content="{Binding SF9}" Style="{StaticResource WhiteText}"/>
+                            </Border>
+
+                            <Border Margin="5,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+                                <Label Content="6 Колено" Style="{StaticResource BordoText}"/>
+                            </Border>
+
+                            <Border Margin="0,10,100,0" HorizontalAlignment="Right" VerticalAlignment="Top">
+                                <Label Content="Н:" Style="{StaticResource BordoText}"/>
+                            </Border>
+                            <Border Margin="0,5,60,0" Style="{StaticResource Gold}">
+                                <Label Content="{Binding S6}" Style="{StaticResource BordoText}"/>
+                            </Border>
+                            <Border Margin="0,55,100,0" HorizontalAlignment="Right" VerticalAlignment="Top">
+                                <Label Content="З:" Style="{StaticResource BordoText}"/>
+                            </Border>
+                            <Border Margin="0,50,60,0" Style="{StaticResource Gold}">
+                                <Label Content="{Binding EA6}" Style="{StaticResource BordoText}"/>
+                            </Border>
+                            <Border Margin="0,27.5,10,0" Style="{StaticResource Gold}">
+                                <Label Content="{Binding SEA6}" Style="{StaticResource BordoText}"/>
+                            </Border>
+
+                            <Border Margin="0,100,100,0" HorizontalAlignment="Right" VerticalAlignment="Top">
+                                <Label Content="М:" Style="{StaticResource BordoText}"/>
+                            </Border>
+                            <Border Margin="0,95,60,0" Style="{StaticResource Gold}">
+                                <Label Content="{Binding M6}" Style="{StaticResource BordoText}"/>
+                            </Border>
+                            <Border Margin="0,145,100,0" HorizontalAlignment="Right" VerticalAlignment="Top">
+                                <Label Content="Ж:" Style="{StaticResource BordoText}"/>
+                            </Border>
+                            <Border Margin="0,140,60,0" Style="{StaticResource Gold}">
+                                <Label Content="{Binding W6}" Style="{StaticResource BordoText}"/>
+                            </Border>
+                            <Border Margin="0,117.5,10,0" Style="{StaticResource Gold}">
+                                <Label Content="{Binding MW6}" Style="{StaticResource BordoText}"/>
+                            </Border>
+
+                            <Border Margin="0,180,18,0" HorizontalAlignment="Right" VerticalAlignment="Top">
+                                <Label Content="Цел. Ключ" Style="{StaticResource BordoText}"/>
+                            </Border>
+                            <Border Margin="0,210,110,0" Style="{StaticResource Gold}">
+                                <Label Content="{Binding SEA6}" Style="{StaticResource BordoText}"/>
+                            </Border>
+                            <Border Margin="0,210,60,0" Style="{StaticResource Gold}">
+                                <Label Content="{Binding MW6}" Style="{StaticResource BordoText}"/>
+                            </Border>
+                            <Border Margin="0,210,10,0" Style="{StaticResource Gold}">
+                                <Label Content="{Binding K6}" Style="{StaticResource BordoText}"/>
+                            </Border>
+
+                            <!--#region Lines -->
+                            <Line X1="60" Y1="60" X2="210" Y2="210" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+                            <Line X1="60" Y1="210" X2="210" Y2="60" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+                            <Line X1="135" Y1="29" X2="135" Y2="241" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+                            <Line X1="29" Y1="135" X2="241" Y2="135" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+
+                            <Line X1="60" Y1="60" X2="135" Y2="29" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+                            <Line X1="210" Y1="60" X2="135" Y2="29" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+                            <Line X1="210" Y1="60" X2="241" Y2="135" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+                            <Line X1="210" Y1="210" X2="241" Y2="135" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+                            <Line X1="210" Y1="210" X2="135" Y2="241" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+                            <Line X1="60" Y1="210" X2="135" Y2="241" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+                            <Line X1="60" Y1="210" X2="29" Y2="135" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+                            <Line X1="60" Y1="60" X2="29" Y2="135" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+
+                            <Line X1="315" Y1="25" X2="365" Y2="47.5" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+                            <Line X1="315" Y1="70" X2="365" Y2="47.5" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+                            <Line X1="315" Y1="115" X2="365" Y2="137.5" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+                            <Line X1="315" Y1="160" X2="365" Y2="137.5" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+                            <!--#endregion-->
+
+                        </Grid>
+
+                        <Grid Grid.Row="3" Grid.Column="1">
+
+                            <Rectangle Height="150" Width="150" Stroke="DarkGoldenrod" StrokeThickness="4" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="60,60,0,0"/>
+                            <Rectangle Height="150" Width="150" Stroke="DarkGoldenrod" StrokeThickness="4" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="135,29,0,0">
+                                <Rectangle.RenderTransform>
+                                    <RotateTransform Angle="45"/>
+                                </Rectangle.RenderTransform>
+                            </Rectangle>
+
+                            <Border Margin="9,115,0,0" Style="{StaticResource Purple}">
+                                <Label Content="{Binding SG1}" Style="{StaticResource WhiteText}"/>
+                            </Border>
+                            <Border Margin="115,9,0,0" Style="{StaticResource Purple}">
+                                <Label Content="{Binding SG2}" Style="{StaticResource WhiteText}"/>
+                            </Border>
+                            <Border Margin="221,115,0,0" Style="{StaticResource Purple}">
+                                <Label Content="{Binding SG3}" Style="{StaticResource WhiteText}"/>
+                            </Border>
+                            <Border Margin="115,221,0,0" Style="{StaticResource Purple}">
+                                <Label Content="{Binding SG4}" Style="{StaticResource WhiteText}"/>
+                            </Border>
+                            <Border Margin="40,40,0,0" Style="{StaticResource Purple}">
+                                <Label Content="{Binding SG5}" Style="{StaticResource WhiteText}"/>
+                            </Border>
+                            <Border Margin="190,40,0,0" Style="{StaticResource Purple}">
+                                <Label Content="{Binding SG6}" Style="{StaticResource WhiteText}"/>
+                            </Border>
+                            <Border Margin="190,190,0,0" Style="{StaticResource Purple}">
+                                <Label Content="{Binding SG7}" Style="{StaticResource WhiteText}"/>
+                            </Border>
+                            <Border Margin="40,190,0,0" Style="{StaticResource Purple}">
+                                <Label Content="{Binding SG8}" Style="{StaticResource WhiteText}"/>
+                            </Border>
+                            <Border Margin="115,115,0,0" Style="{StaticResource Purple}">
+                                <Label Content="{Binding SG9}" Style="{StaticResource WhiteText}"/>
+                            </Border>
+
+                            <Border Margin="5,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+                                <Label Content="7 Колено" Style="{StaticResource BordoText}"/>
+                            </Border>
+
+                            <Border Margin="0,10,100,0" HorizontalAlignment="Right" VerticalAlignment="Top">
+                                <Label Content="Н:" Style="{StaticResource BordoText}"/>
+                            </Border>
+                            <Border Margin="0,5,60,0" Style="{StaticResource Gold}">
+                                <Label Content="{Binding S7}" Style="{StaticResource BordoText}"/>
+                            </Border>
+                            <Border Margin="0,55,100,0" HorizontalAlignment="Right" VerticalAlignment="Top">
+                                <Label Content="З:" Style="{StaticResource BordoText}"/>
+                            </Border>
+                            <Border Margin="0,50,60,0" Style="{StaticResource Gold}">
+                                <Label Content="{Binding EA7}" Style="{StaticResource BordoText}"/>
+                            </Border>
+                            <Border Margin="0,27.5,10,0" Style="{StaticResource Gold}">
+                                <Label Content="{Binding SEA7}" Style="{StaticResource BordoText}"/>
+                            </Border>
+
+                            <Border Margin="0,100,100,0" HorizontalAlignment="Right" VerticalAlignment="Top">
+                                <Label Content="М:" Style="{StaticResource BordoText}"/>
+                            </Border>
+                            <Border Margin="0,95,60,0" Style="{StaticResource Gold}">
+                                <Label Content="{Binding M7}" Style="{StaticResource BordoText}"/>
+                            </Border>
+                            <Border Margin="0,145,100,0" HorizontalAlignment="Right" VerticalAlignment="Top">
+                                <Label Content="Ж:" Style="{StaticResource BordoText}"/>
+                            </Border>
+                            <Border Margin="0,140,60,0" Style="{StaticResource Gold}">
+                                <Label Content="{Binding W7}" Style="{StaticResource BordoText}"/>
+                            </Border>
+                            <Border Margin="0,117.5,10,0" Style="{StaticResource Gold}">
+                                <Label Content="{Binding MW7}" Style="{StaticResource BordoText}"/>
+                            </Border>
+
+                            <Border Margin="0,180,18,0" HorizontalAlignment="Right" VerticalAlignment="Top">
+                                <Label Content="Цел. Ключ" Style="{StaticResource BordoText}"/>
+                            </Border>
+                            <Border Margin="0,210,110,0" Style="{StaticResource Gold}">
+                                <Label Content="{Binding SEA7}" Style="{StaticResource BordoText}"/>
+                            </Border>
+                            <Border Margin="0,210,60,0" Style="{StaticResource Gold}">
+                                <Label Content="{Binding MW7}" Style="{StaticResource BordoText}"/>
+                            </Border>
+                            <Border Margin="0,210,10,0" Style="{StaticResource Gold}">
+                                <Label Content="{Binding K7}" Style="{StaticResource BordoText}"/>
+                            </Border>
+
+                            <!--#region Lines -->
+                            <Line X1="60" Y1="60" X2="210" Y2="210" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+                            <Line X1="60" Y1="210" X2="210" Y2="60" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+                            <Line X1="135" Y1="29" X2="135" Y2="241" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+                            <Line X1="29" Y1="135" X2="241" Y2="135" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+
+                            <Line X1="60" Y1="60" X2="135" Y2="29" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+                            <Line X1="210" Y1="60" X2="135" Y2="29" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+                            <Line X1="210" Y1="60" X2="241" Y2="135" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+                            <Line X1="210" Y1="210" X2="241" Y2="135" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+                            <Line X1="210" Y1="210" X2="135" Y2="241" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+                            <Line X1="60" Y1="210" X2="135" Y2="241" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+                            <Line X1="60" Y1="210" X2="29" Y2="135" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+                            <Line X1="60" Y1="60" X2="29" Y2="135" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+
+                            <Line X1="315" Y1="25" X2="365" Y2="47.5" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+                            <Line X1="315" Y1="70" X2="365" Y2="47.5" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+                            <Line X1="315" Y1="115" X2="365" Y2="137.5" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+                            <Line X1="315" Y1="160" X2="365" Y2="137.5" Stroke="DarkGoldenrod" StrokeThickness="2"/>
+                            <!--#endregion-->
+
+                        </Grid>
+
+                        <!--#endregion-->
+
+                    </Grid>
+                </BlockUIContainer>
+            </FlowDocument>
+        </FlowDocumentReader>
+    </Grid>
+</Window>

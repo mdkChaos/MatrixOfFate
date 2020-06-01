@@ -1,0 +1,42 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp5.0</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <Copyright>Andrii Poludniev 2020</Copyright>
+    <PackageId>OpenYourWay</PackageId>
+    <Authors>Andrii Poludniev</Authors>
+    <Product>Open your way</Product>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Description>This program is designed to calculate the matrix of fate.</Description>
+    <PackageIcon>Icon.png</PackageIcon>
+    <ApplicationIcon>Test2.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\Icon\Icon.png" />
+    <None Remove="Resources\Icon\Logo3.png" />
+    <None Remove="Resources\Icon\Logo4.png" />
+    <None Remove="Test2.ico" />
+    <Resource Include="Resources\Icon\Icon.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Icon\Logo3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Icon\Logo4.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Test2.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ViewModels\" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,8 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:MatrixOfFate.Resources.Styles">
+    <Style x:Key="BorderTable">
+        <Setter Property="Border.BorderThickness" Value="2"/>
+        <Setter Property="Border.BorderBrush" Value="Goldenrod"/>
+    </Style>
+</ResourceDictionary>
